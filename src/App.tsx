@@ -2,22 +2,27 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import SettingsIcon from '@mui/icons-material/Settings';
 import '@fontsource/roboto/300.css';
-import { Typography } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
+import Sidebar from './components/Sidebar';
+import Rightbar from './components/Rightbar';
+import Navbar from './components/Navbar';
+import Feed from './components/Feed';
 
 
 export default function App() {
 
   return(
-    <div>
-      <Button startIcon={<SettingsIcon/>} variant="contained" color='secondary' size='large'>Hello world</Button>
-      <Typography variant='h1' component="p">h1.heading</Typography>
-      <Button variant='contained' sx={
-        {
-          color: 'gray',
-          backgroundColor: 'blue',
-          margin: '10px'
-        }
-      }>red button</Button>
-    </div>
+    <>
+     <Navbar/>
+    <Box>
+      <Stack direction="row" spacing={2} justifyContent="space-between">
+        
+        <Sidebar/>
+        <Feed/>
+        <Rightbar/>
+      </Stack>
+
+    </Box>
+    </>
   ) 
 }
