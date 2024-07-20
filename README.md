@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# MeowMeet
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React application that uses Material-UI (MUI) for styling and components. The application includes a sidebar, navbar, feed, rightbar, and an add button. It also supports light and dark themes.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Components
 
-## Expanding the ESLint configuration
+- Navbar
+The Navbar component is used to display the navigation bar at the top of the application.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Sidebar
+The Sidebar component allows the user to navigate through different sections of the application. It also includes a switch for toggling between light and dark modes.
 
-- Configure the top-level `parserOptions` property like this:
+- Feed
+The Feed component displays the main content of the application.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Rightbar
+The Rightbar component shows additional information, such as online friends, latest photos, and latest conversations.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Add
+The Add component includes a button to add new content.
+
+- Theme Switching
+The application supports light and dark themes. The theme can be switched using a toggle in the Sidebar component. The current theme mode is managed using the useState hook in the App component.
+

@@ -1,10 +1,17 @@
 import { ChildFriendlySharp, Group, Home, MarkUnreadChatAltTwoTone, ModeNight, Pages } from "@mui/icons-material";
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Switch } from "@mui/material";
-import React from "react";
 
-const Sidebar = () => {
+import React from 'react';
+
+interface SidebarProps {
+  setMode: (mode: "light" | "dark") => void;
+  mode: "light" | "dark";
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ setMode, mode }) => {
   return (
     <Box flex ={1} p={2} sx={{display:{xs:"none",sm:"block"}}}>
+      <Box position={"fixed"}>
       <List>
             <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
@@ -51,10 +58,12 @@ const Sidebar = () => {
               <ListItemIcon>
                 <ModeNight/>
               </ListItemIcon>
-              <Switch />
+              <Switch onClick={() => setMode(mode === "light" ? "dark" : "light")}/>
             </ListItemButton>           
           </ListItem>
       </List>
+      </Box>
+
 
   
     </Box>

@@ -1,6 +1,6 @@
-import { Mail, Notifications, Pets } from "@mui/icons-material";
+import { Mail, Notifications, Pets} from "@mui/icons-material";
 import { AppBar, Avatar, Badge, Box, InputBase, Menu, MenuItem, styled, Toolbar, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -36,15 +36,6 @@ const UserBox = styled(Box)(({ theme }) => ({
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
-  const [anchorEl, setAnchorEl] = useState(null);
-  
-  const handleClick = (e: { currentTarget: React.SetStateAction<null>; }) => {
-    setAnchorEl(e.currentTarget);
-  };
-  
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   return (
     <AppBar position="sticky">
@@ -52,7 +43,7 @@ const Navbar = () => {
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
           MeowMeet
         </Typography>
-        <Pets sx={{ display: { xs: "block", sm: "none" } }} onClick={handleClick} />
+        <Pets sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
           <InputBase placeholder="search..." />
         </Search>
@@ -63,9 +54,9 @@ const Navbar = () => {
           <Badge badgeContent={2} color="error">
             <Notifications color="action" />
           </Badge>
-          <Avatar onClick={(e)=>setOpen(true)} />
+          <Avatar onClick={()=>setOpen(true)} />
         </Icons>
-        <UserBox onClick={(e)=>setOpen(true)}  >
+        <UserBox onClick={()=>setOpen(true)}  >
           <Avatar />
           <Typography >Tobi</Typography>
         </UserBox>
@@ -74,7 +65,7 @@ const Navbar = () => {
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         open={open}
-        onClose={(e)=>setOpen(false)}
+        onClose={()=>setOpen(false)}
         anchorOrigin={{
           vertical: 'top',
           horizontal: 'right',
