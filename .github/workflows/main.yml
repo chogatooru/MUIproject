@@ -10,7 +10,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -27,6 +26,10 @@ jobs:
 
     - name: Run lint
       run: npm run lint
+
+    # Uncomment this step if you have tests
+    # - name: Run tests
+    #   run: npm test
 
     - name: Build project
       run: npm run build
@@ -56,4 +59,3 @@ jobs:
         echo "Deploying to production server..."
         # Add your deployment script or commands here, for example:
         # scp -r ./build user@your-server:/path/to/deploy
-
