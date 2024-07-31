@@ -1,0 +1,30 @@
+name: Build and Test
+on:
+  push:
+    branches:
+      - "main"
+      - "releases/**"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Deployy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          production-deploy: true
+          production-branch: main
+          publish-dir: "./build"
+          github-token: ${{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}}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{nfp_hReUNcX6oHDM5KzKKiZLwgjCLicJhkvc1335}}
+          NETLIFY_SITE_ID: ${{6d82fac4-0b7c-4854-a92e-ac44df3a6c3d}}
