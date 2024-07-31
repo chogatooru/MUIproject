@@ -7,7 +7,6 @@ const Feed = () => {
       <Post/>
       <Post/>
       <Post/>
-
     </Box>
   );
 };
