@@ -20,7 +20,7 @@ jobs:
           production-deploy: true
           production-branch: main
           publish-dir: "./build"
-          github-token: ${{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}}
+          github-token: ${{secrets.GITHUB_TOKEN}}
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
           enable-commit-comment: true
