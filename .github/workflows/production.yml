@@ -26,5 +26,4 @@ jobs:
           enable-commit-comment: true
           overwrites-pull-request-comment: true
         env:
-          NETLIFY_AUTH_TOKEN: ${{nfp_hReUNcX6oHDM5KzKKiZLwgjCLicJhkvc1335}}
           NETLIFY_SITE_ID: ${{6d82fac4-0b7c-4854-a92e-ac44df3a6c3d}}
