@@ -40,6 +40,10 @@ The Add component includes a button to add new content.
 - Theme Switching
 The application supports light and dark themes. The theme can be switched using a toggle in the Sidebar component. The current theme mode is managed using the useState hook in the App component.
 
+## Deployment
+
+The application is deployed and accessible at [https://meowmeowmeet.netlify.app/#](https://meowmeowmeet.netlify.app/#).
+
 ### Notes
 
 - **Screenshots**: Place the screenshots in the `screenshots` directory and ensure the filenames match those referenced in the `README.md`.
