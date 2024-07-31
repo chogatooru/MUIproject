@@ -13,13 +13,17 @@ jobs:
       - name: Set node version
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18" # 更新为更高的 Node.js 版本
+      - name: Install dependencies
+        run: npm install # 确保安装依赖
+      - name: Build
+        run: npm run build # 确保构建输出到正确的目录
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
           production-deploy: true
           production-branch: main
-          publish-dir: "./build"
+          publish-dir: "./build" # 确保目录正确
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
