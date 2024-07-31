@@ -1,61 +1,35 @@
-name: CI/CD Pipeline
-
+name: Build and Test
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+      - "main"
+      - "releases/**"
+      
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run lint
-      run: npm run lint
-
-    # Uncomment this step if you have tests
-    # - name: Run tests
-    #   run: npm test
-
-    - name: Build project
-      run: npm run build
-
-    - name: Upload production-ready build files
-      uses: actions/upload-artifact@v2
-      with:
-        name: build
-        path: build/
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Download build artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: build
-        path: ./build
-
-    - name: Deploy to production server
-      run: |
-        echo "Deploying to production server..."
-        # Add your deployment script or commands here, for example:
-        # scp -r ./build user@your-server:/path/to/deploy
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18" # 更新为更高的 Node.js 版本
+      - name: Install dependencies
+        run: npm install # 确保安装依赖
+      - name: Build
+        run: npm run build # 确保构建输出到正确的目录
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          production-deploy: true
+          production-branch: main
+          publish-dir: "./build" # 确保目录正确
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_ID }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

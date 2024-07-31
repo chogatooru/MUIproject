@@ -16,8 +16,8 @@ Here are some screenshots of the application:
 
 <img width="1000" alt="Conversations Page Screenshot" src="https://github.com/user-attachments/assets/083a3f9f-eec7-450e-9e82-a0d6eca1af6b">
 <div style="display: flex; gap: 10px;">
-  <img width="400" alt="Homepage Screenshot" src="https://github.com/user-attachments/assets/7b18a80b-5547-4e27-bd58-19b95d298452">
-  <img width="400" alt="Adopt Page Screenshot" src="https://github.com/user-attachments/assets/4fa0218f-b365-41ba-a611-737bf5dd2052">
+  <img width="477" alt="Homepage Screenshot" src="https://github.com/user-attachments/assets/7b18a80b-5547-4e27-bd58-19b95d298452">
+  <img width="477" alt="Adopt Page Screenshot" src="https://github.com/user-attachments/assets/4fa0218f-b365-41ba-a611-737bf5dd2052">
 </div>
 
 ## Components
